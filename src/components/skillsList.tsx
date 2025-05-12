@@ -49,16 +49,6 @@ export default function SkillsList() {
         <h2 className="text-2xl font-bold text-white mb-2">Skills</h2>
       </div>
       <div className="mb-8">
-        {/* <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Search skills..."
-            className="w-full p-3 bg-zinc-800 rounded-lg text-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div> */}
-
         <div className="flex flex-wrap gap-2">
           <button
             className={`px-3 py-2 rounded-lg text-sm ${
@@ -88,7 +78,7 @@ export default function SkillsList() {
       </div>
 
       {filteredSkills.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3  gap-4">
           {filteredSkills.map((skill) => (
             <SkillCard key={skill.id} skill={skill} />
           ))}
