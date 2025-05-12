@@ -66,11 +66,7 @@ export default function ExperienceList() {
       <div className="relative">
         {visibleExperiences.map((experience, index) => (
           <div key={experience.id} className="relative mb-6">
-            <ExperienceCard experience={experience} />
-
-            {index < visibleExperiences.length - 1 && (
-              <div className="absolute left-5 top-full h-6 w-0.5 bg-zinc-800"></div>
-            )}
+            <ExperienceCard key={index} experience={experience} />
           </div>
         ))}
 

@@ -9,6 +9,7 @@ export default function BlogList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
+  const [expandedView, setExpandedView] = useState(false);
 
   const filteredAndSortedPosts = blogPosts
     .filter((post) => {
@@ -42,6 +43,10 @@ export default function BlogList() {
   const toggleSortDirection = () => {
     setSortDirection((prev) => (prev === "desc" ? "asc" : "desc"));
   };
+
+  const visiblePosts = expandedView
+    ? filteredAndSortedPosts
+    : filteredAndSortedPosts.slice(0, 3);
 
   return (
     <div className="space-y-8">
@@ -93,13 +98,28 @@ export default function BlogList() {
         </div>
       </div>
 
-      {filteredAndSortedPosts.length > 0 ? (
+      {visiblePosts.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-1">
-          {filteredAndSortedPosts.map((post) => (
-            <BlogPostCard key={post.id} post={post} />
+          {visiblePosts.map((post, key) => (
+            <BlogPostCard key={key} post={post} />
           ))}
         </div>
-      ) : (
+      )}
+
+      {filteredAndSortedPosts.length > 3 && (
+        <div className="text-center mt-6 mb-2">
+          <button
+            className="px-4 py-2 bg-zinc-800 text-gray-300 rounded-lg hover:bg-zinc-700 transition-colors"
+            onClick={() => setExpandedView(!expandedView)}
+          >
+            {expandedView
+              ? `Show Less`
+              : `Show ${filteredAndSortedPosts.length - 3} More`}
+          </button>
+        </div>
+      )}
+
+      {visiblePosts.length === 0 && (
         <div className="text-center py-16 bg-zinc-900 rounded-lg">
           <h3 className="text-xl font-semibold text-white mb-2">
             No articles found

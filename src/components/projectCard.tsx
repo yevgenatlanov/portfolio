@@ -4,30 +4,12 @@ import { Project } from "@/types";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
-import { useState, useEffect } from "react";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkIfMobile();
-
-    window.addEventListener("resize", checkIfMobile);
-
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
-
-  const showDetails = isExpanded || !isMobile;
-
   return (
     <div className="bg-card-custom rounded-lg p-4 md:p-5 mb-4 transition-all duration-300 hover:translate-y-[-4px]">
       <div className="flex items-center justify-between mb-4">
@@ -68,16 +50,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       <p className="text-gray-300 mb-4">{project.description}</p>
 
-      {isMobile && (
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-sm text-blue-400 mb-4"
-        >
-          {isExpanded ? "Show less" : "Show more details"}
-        </button>
-      )}
-
-      {showDetails && project.techStack && (
+      {project.techStack && (
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech, index) => (
             <span

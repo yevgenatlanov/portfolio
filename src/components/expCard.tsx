@@ -72,10 +72,25 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
     <div className="bg-card-custom rounded-lg p-4 md:p-5 mb-4 transition-all duration-300 hover:translate-y-[-4px]">
       <div className="flex justify-between items-start">
         <div className="flex-1">
-          <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-xl font-bold text-white">{experience.title}</h3>
+          <div className="flex flex-wrap items-center mb-2">
+            <div
+              className="flex items-center flex-grow cursor-pointer"
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              <button
+                className="text-gray-400 hover:text-white cursor-pointer transition-colors mr-2"
+                aria-label={isExpanded ? "Collapse details" : "Expand details"}
+              >
+                {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+              <h3 className="text-xl font-bold text-white">
+                {experience.title}
+              </h3>
+            </div>
+
+            {/* Type badge - pushed to next row on mobile */}
             <span
-              className={`text-xs px-2 py-1 rounded ${getTypeBadgeColor(
+              className={`text-xs px-2 py-1 rounded mt-1 sm:mt-0 ${getTypeBadgeColor(
                 experience.type
               )}`}
             >
@@ -83,7 +98,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             </span>
           </div>
 
-          <div className="text-lg font-medium text-blue-400 mb-2">
+          <div className=" text-lg font-medium text-blue-400 mb-2">
             {experience.company}
           </div>
 
@@ -92,7 +107,9 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
               <FaCalendarAlt className="mr-1" />
               <span>{dateRange}</span>
               {getDuration() && (
-                <span className="ml-1 text-gray-500">({getDuration()})</span>
+                <span className="hidden sm:inline-block ml-1 text-gray-500">
+                  ({getDuration()})
+                </span>
               )}
             </div>
 
@@ -109,14 +126,6 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             )}
           </div>
         </div>
-
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="text-gray-400 hover:text-white transition-colors p-2"
-          aria-label={isExpanded ? "Collapse details" : "Expand details"}
-        >
-          {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
-        </button>
       </div>
 
       {isExpanded && (
