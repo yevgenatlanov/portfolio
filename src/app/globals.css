@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    background-color: rgb(21 21 21 / 1); /* bg-night */
+    color: rgb(148 148 149 / 1); /* text-dawn */
+  }
+  
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    color: white;
+    font-weight: bold;
+  }
+  
+  a {
+    transition-property: color;
+    transition-duration: 200ms;
+  }
+  
+  button {
+    transition-property: all;
+    transition-duration: 200ms;
+  }
+  
+  input, textarea {
+    transition-property: all;
+    transition-duration: 200ms;
+  }
+}
+
+@layer components {
+  .bg-card-custom {
+    --tw-bg-opacity: 1;
+    background-color: rgb(32 32 34 / var(--tw-bg-opacity, 1));
+  }
+  
+  /* Button variants */
+  .btn-primary {
+    padding: 0.5rem 1rem;
+    background-color: rgb(37 99 235 / 1);
+    color: white;
+    border-radius: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 200ms;
+  }
+  .btn-primary:hover {
+    background-color: rgb(29 78 216 / 1);
+  }
+  
+  .btn-secondary {
+    padding: 0.5rem 1rem;
+    background-color: rgb(39 39 42 / 1);
+    color: rgb(209 213 219 / 1);
+    border-radius: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 200ms;
+  }
+  .btn-secondary:hover {
+    background-color: rgb(63 63 70 / 1);
+  }
+  
+  .btn-outline {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgb(75 85 99 / 1);
+    color: rgb(209 213 219 / 1);
+    border-radius: 0.5rem;
+    transition-property: background-color;
+    transition-duration: 200ms;
+  }
+  .btn-outline:hover {
+    background-color: rgb(39 39 42 / 1);
+  }
+  
+  /* Form controls */
+  .form-input {
+    width: 100%;
+    padding: 1rem;
+    height: 3rem;
+    background-color: rgb(39 39 42 / 1);
+    border-radius: 0.5rem;
+    color: rgb(209 213 219 / 1);
+  }
+  .form-input:focus {
+    outline: none;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+    --tw-ring-color: rgb(59 130 246 / 1);
+  }
+  
+  /* Badge styles */
+  .badge {
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(39 39 42 / 1);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    color: rgb(209 213 219 / 1);
+  }
+  
+  .badge-blue {
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(30 58 138 / 1);
+    color: rgb(191 219 254 / 1);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .badge-purple {
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(88 28 135 / 1);
+    color: rgb(216 180 254 / 1);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .badge-green {
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(20 83 45 / 1);
+    color: rgb(187 247 208 / 1);
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+@layer utilities {
+  .transition {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .shift-y-16 {
+    transform: translateY(16px);
+  }
+  
+  /* Animations */
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-in-out;
+  }
+  
+  .animate-slideDown {
+    animation: slideDown 0.4s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* For Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+/* For Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Scroll margins */
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+
+/* Scroll progress indicator */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scroll-progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, rgb(59 130 246 / 1), rgb(139 92 246 / 1));
+  width: 0%;
+  transition: width 0.2s ease;
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
