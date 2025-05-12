@@ -85,7 +85,7 @@ export default function Home() {
       <BackToTop />
 
       {/* Mobile Header */}
-      <div className="bg-card-custom  md:hidden sticky top-0 z-30 bg-night px-4 py-4 border-b border-dusk">
+      <div className="bg-card-custom  md:hidden sticky top-0 z-30 bg-night px-4 py-4  border-dusk">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-bold text-white">Yevhenii Atlanov</h1>
           <button onClick={toggleMobileMenu} className="text-white p-2">
@@ -113,7 +113,7 @@ export default function Home() {
         {isMobileMenuOpen && (
           <div className="pt-4 animate-fadeIn">
             <Navigation activeTab={activeTab} setActiveTab={handleNavClick} />
-            <div className="mt-6 pt-4 border-t border-dusk">
+            <div className="mt-6 pt-4">
               <SocialLinks />
             </div>
           </div>
@@ -224,7 +224,7 @@ export default function Home() {
               </section>
             </div>
 
-            <div className="md:hidden py-8 border-t border-dusk mt-8">
+            <div className="md:hidden py-8 mt-8">
               <SocialLinks />
             </div>
           </div>

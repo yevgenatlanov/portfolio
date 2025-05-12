@@ -33,18 +33,18 @@ const SocialLinks: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-4">
+    <div className="flex justify-between w-full">
       {socialLinks.map((link) => (
         <a
           key={link.label}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-colors flex items-center"
+          className="text-gray-400 hover:text-white transition-colors flex items-center justify-center md:justify-start"
           aria-label={link.label}
         >
           {link.icon}
-          <span className="ml-2 md:inline">{link.label}</span>
+          <span className="ml-2 hidden sm:inline">{link.label}</span>
         </a>
       ))}
     </div>
