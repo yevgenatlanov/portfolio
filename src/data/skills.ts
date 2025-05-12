@@ -30,7 +30,7 @@ export const skills: Skill[] = [
   },
   {
     id: "tailwind",
-    name: "Tailwind CSS",
+    name: "Tailwind",
     icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg",
     category: "frontend",
     level: 4,
@@ -292,7 +292,7 @@ export const skills: Skill[] = [
   },
   {
     id: "gcp",
-    name: "Google Cloud Platform",
+    name: "GCP",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
     category: "cloud",
     level: 3,
