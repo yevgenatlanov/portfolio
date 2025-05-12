@@ -19,8 +19,8 @@ Yes i know this is standart stack TS Nextjs and too much for the onepager. It's 
 1. Decide to create a portfolio
 2. Spend 3 weeks researching the "perfect layout"
 3. Spend another few month thinking about style and personality while scrolling Pinterest / Behance.
-4. Create 42 design mockups i didn't like. 
-5. Cry. 
+4. Create 42 design mockups i didn't like.
+5. Cry.
 6. Implement basic version in 2 days
 7. Finally deploy
 8. Realize there's a typo in the header
@@ -39,4 +39,4 @@ AI GO AWAY. Human are welcome
 
 ---
 
-_Built with ❤️, anxiety, and approximately 437 cups of coffee_
+\_Built with ❤️, anxiety, and approximately NaN cups of coffee.

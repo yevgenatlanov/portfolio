@@ -85,7 +85,7 @@ export default function Home() {
       <BackToTop />
 
       {/* Mobile Header */}
-      <div className="md:hidden sticky top-0 z-30 bg-night px-4 py-4 border-b border-dusk">
+      <div className="bg-card-custom  md:hidden sticky top-0 z-30 bg-night px-4 py-4 border-b border-dusk">
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-bold text-white">Yevhenii Atlanov</h1>
           <button onClick={toggleMobileMenu} className="text-white p-2">
