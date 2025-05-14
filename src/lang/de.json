@@ -32,11 +32,13 @@
   },
   "projects": {
     "title": "Eigene Projekte",
+    "subtitle": "Persönliche Projekte, die ich in meiner Freizeit mache",
     "viewProject": "Projekt ansehen",
     "viewCode": "Code ansehen"
   },
   "skills": {
     "title": "Fähigkeiten",
+    "subtitle": "",
     "searchPlaceholder": "Fähigkeiten suchen...",
     "noResults": "Keine Fähigkeiten entsprechen deinen Kriterien",
     "clearFilters": "Filter löschen",

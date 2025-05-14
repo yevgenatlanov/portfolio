@@ -32,11 +32,13 @@
   },
   "projects": {
     "title": "Pet Projects",
+    "subtitle": "Personal projects i do on free time",
     "viewProject": "View Project",
     "viewCode": "View Code"
   },
   "skills": {
     "title": "Skills",
+    "subtitle": "Technologies i'm comfortable with",
     "searchPlaceholder": "Search skills...",
     "noResults": "No skills match your criteria",
     "clearFilters": "Clear filters",
