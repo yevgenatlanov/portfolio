@@ -55,7 +55,7 @@ const SocialLinks: React.FC = () => {
                   variant="outline"
                   size="icon"
                   asChild
-                  className="text-muted-foreground hover:text-foreground transition-colors gap-2"
+                  className=" hover:text-foreground transition-colors gap-2"
                 >
                   <a
                     href={link.href}
