@@ -4,6 +4,7 @@ import { TabType } from "@/types";
 import { useI18n } from "@/lib/i18n";
 import Navigation from "@/components/navigation";
 import SocialLinks from "@/components/socialLinks";
+import Link from "next/link";
 
 interface ContentFixedColumnProps {
   activeTab: TabType;
@@ -25,9 +26,11 @@ export default function ContentFixedColumn({
     <div className="p-8 md:p-14 flex flex-col h-full">
       <div className="flex-grow">
         <header className="mb-16">
-          <h1 className="text-5xl font-bold text-foreground mb-6">
-            Yevhenii Atlanov
-          </h1>
+          <Link href={`/`} passHref>
+            <h1 className="text-5xl font-bold text-foreground mb-6">
+              Yevhenii Atlanov
+            </h1>
+          </Link>
           <h2 className="text-xl mb-12 text-foreground">{t("header.title")}</h2>
 
           <p className="text-sm mb-6">{t("header.intro1")}</p>
