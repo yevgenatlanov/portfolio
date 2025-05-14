@@ -4,64 +4,83 @@ import { Project } from "@/types";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { BiCodeAlt } from "react-icons/bi";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import { Badge } from "./ui/badge";
+import { useI18n } from "@/lib/i18n";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const { t } = useI18n();
   return (
-    <div className="bg-card-custom rounded-lg p-4 md:p-5 mb-4 transition-all duration-300 hover:translate-y-[-4px]">
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center">
-          <div className="bg-zinc-800 p-2 rounded-md mr-3 flex items-center justify-center">
-            <BiCodeAlt className="text-blue-400" size={24} />
+    <Card className="bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+      <CardHeader className="pb-2">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="bg-secondary p-2 rounded-md flex items-center justify-center">
+              <BiCodeAlt className="text-primary" size={24} />
+            </div>
+            <CardTitle className="text-xl md:text-2xl">
+              {project.title}
+            </CardTitle>
           </div>
-          <h3 className="text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors">
-            {project.title}
-          </h3>
+
+          <div className="flex items-center space-x-2">
+            {project.githubUrl && project.githubUrl !== "#" && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={t("projects.viewCode")}
+              >
+                <FaGithub size={18} />
+              </a>
+            )}
+            {project.liveUrl && project.liveUrl !== "#" && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+                aria-label={t("projects.viewProject")}
+              >
+                <FiExternalLink size={18} />
+              </a>
+            )}
+          </div>
         </div>
+      </CardHeader>
 
-        <div className="flex items-center space-x-2">
-          {project.githubUrl && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-400 hover:text-white transition-colors"
-              aria-label="GitHub"
-            >
-              <FaGithub size={18} />
-            </a>
-          )}
-          {project.liveUrl && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 text-gray-400 hover:text-white transition-colors"
-              aria-label="Live Demo"
-            >
-              <FiExternalLink size={18} />
-            </a>
-          )}
-        </div>
-      </div>
+      <CardContent>
+        <CardDescription className="text-foreground/80 mb-4 text-base">
+          {project.description}
+        </CardDescription>
+      </CardContent>
 
-      <p className="text-gray-300 mb-4">{project.description}</p>
-
-      {project.techStack && (
+      <CardFooter>
         <div className="flex flex-wrap gap-2">
-          {project.techStack.map((tech, index) => (
-            <span
-              key={index}
-              className="px-2 py-1 bg-zinc-800 rounded text-xs text-gray-300"
-            >
+          {project.techStack?.slice(0, 3).map((tech, index) => (
+            <Badge key={index} variant="secondary" className="text-xs">
               {tech}
-            </span>
+            </Badge>
           ))}
+          {project.techStack && project.techStack.length > 3 && (
+            <Badge variant="outline" className="text-xs">
+              +{project.techStack.length - 3}
+            </Badge>
+          )}
         </div>
-      )}
-    </div>
+      </CardFooter>
+    </Card>
   );
 }

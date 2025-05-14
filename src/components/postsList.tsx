@@ -3,30 +3,29 @@
 import { useState } from "react";
 import { blogPosts } from "@/data/posts";
 import BlogPostCard from "./postCard";
-import { FaSearch, FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
+import { Button } from "./ui/button";
+import { ArrowDown, ArrowUp, SearchIcon } from "lucide-react";
+import { Input } from "./ui/input";
+import { useI18n } from "@/lib/i18n";
 
 export default function BlogList() {
+  const { t } = useI18n();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
   const [expandedView, setExpandedView] = useState(false);
 
   const filteredAndSortedPosts = blogPosts
     .filter((post) => {
-      const matchesSearch =
-        post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        post.tags.some((tag) =>
-          tag.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+      // check if the post is published (2nd layer for api to prevent showing drafts)
+      if (!post.isPublished) return false;
 
-      const matchesTag = selectedTag
-        ? post.tags.some(
-            (tag) => tag.toLowerCase() === selectedTag.toLowerCase()
-          )
+      // check search match
+      const matchesSearch = searchQuery
+        ? post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          post.excerpt.toLowerCase().includes(searchQuery.toLowerCase())
         : true;
 
-      return matchesSearch && matchesTag && post.isPublished;
+      return matchesSearch;
     })
     .sort((a, b) => {
       const dateA = new Date(a.date).getTime();
@@ -37,7 +36,6 @@ export default function BlogList() {
 
   const clearFilters = () => {
     setSearchQuery("");
-    setSelectedTag(null);
   };
 
   const toggleSortDirection = () => {
@@ -50,56 +48,61 @@ export default function BlogList() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h2 className="text-2xl font-bold text-white">
-          Blog{" "}
-          <span className="text-gray-400 text-lg">
-            ({filteredAndSortedPosts.length})
-          </span>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">
+          04: {t("blog.title")}
         </h2>
-        <p className="text-gray-400">
-          Thoughts, ideas, and staff i find interesting
-        </p>
+        {/* <span className="text-muted-foreground text-xl">
+          ({filteredAndSortedPosts.length})
+        </span> */}
+        <p className="text-muted-foreground">{t("blog.subtitle")}</p>
       </div>
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <div className="relative flex-grow">
-            <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-            <input
-              type="text"
-              placeholder="Search articles..."
-              className="w-full p-2 pl-10 h-10 bg-zinc-800 rounded-lg text-gray-300 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
+            <div className="relative w-full">
+              <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+              <Input
+                type="text"
+                placeholder={t("blog.searchPlaceholder")}
+                className="w-full pl-10"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
           </div>
 
-          <button
-            className="flex items-center h-10 px-3 bg-zinc-800 rounded-lg text-gray-300 hover:bg-zinc-700 shrink-0"
+          <Button
+            size="icon"
+            variant="secondary"
             onClick={toggleSortDirection}
-            title={sortDirection === "desc" ? "Newest First" : "Oldest First"}
+            title={t(
+              `blog.sorting.${
+                sortDirection === "desc" ? "newestFirst" : "oldestFirst"
+              }`
+            )}
           >
             {sortDirection === "desc" ? (
-              <FaSortAmountDown />
+              <ArrowDown className="h-4 w-4" />
             ) : (
-              <FaSortAmountUp />
+              <ArrowUp className="h-4 w-4" />
             )}
-          </button>
+          </Button>
 
-          {(searchQuery || selectedTag) && (
+          {searchQuery && (
             <button
               className="flex items-center h-10 px-3 bg-zinc-800 rounded-lg text-gray-300 hover:bg-zinc-700 shrink-0"
               onClick={clearFilters}
             >
-              Clear
+              {t("common.clear")}
             </button>
           )}
         </div>
       </div>
 
       {visiblePosts.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-1">
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
           {visiblePosts.map((post, key) => (
             <BlogPostCard key={key} post={post} />
           ))}
@@ -108,31 +111,26 @@ export default function BlogList() {
 
       {filteredAndSortedPosts.length > 3 && (
         <div className="text-center mt-6 mb-2">
-          <button
-            className="px-4 py-2 bg-zinc-800 text-gray-300 rounded-lg hover:bg-zinc-700 transition-colors"
+          <Button
+            variant="secondary"
             onClick={() => setExpandedView(!expandedView)}
           >
             {expandedView
-              ? `Show Less`
-              : `Show ${filteredAndSortedPosts.length - 3} More`}
-          </button>
+              ? t("blog.showLess")
+              : t("blog.showMore", {
+                  params: { "0": filteredAndSortedPosts.length - 3 },
+                })}
+          </Button>
         </div>
       )}
 
       {visiblePosts.length === 0 && (
-        <div className="text-center py-16 bg-zinc-900 rounded-lg">
+        <div className="text-center py-16 bg-secondary/20 rounded-lg border border-border">
           <h3 className="text-xl font-semibold text-white mb-2">
-            No articles found
+            {t("blog.noResults")}
           </h3>
-          <p className="text-gray-400 mb-4">
-            Try adjusting your search or filters
-          </p>
-          <button
-            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-            onClick={clearFilters}
-          >
-            Clear All Filters
-          </button>
+          <p className="text-muted-foreground mb-4">{t("blog.tryAdjusting")}</p>
+          <Button onClick={clearFilters}>{t("blog.clearFilters")}</Button>
         </div>
       )}
     </div>

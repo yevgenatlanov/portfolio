@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { skills, skillsByCategory } from "@/data/skills";
 import SkillCard from "./skillsCard";
 import { SkillCategory } from "@/types";
+import { Button } from "./ui/button";
+import { useI18n } from "@/lib/i18n";
 
 export default function SkillsList() {
+  const { t } = useI18n();
+
   const [selectedCategory, setSelectedCategory] = useState<
     SkillCategory | "all"
   >("all");
@@ -13,88 +17,75 @@ export default function SkillsList() {
 
   const categories = Object.keys(skillsByCategory) as SkillCategory[];
 
-  const filteredSkills = skills.filter((skill) => {
-    const matchesCategory =
-      selectedCategory === "all" || skill.category === selectedCategory;
-    const matchesSearch =
-      skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      skill.description?.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  const filteredSkills = useMemo(() => {
+    return skills.filter((skill) => {
+      const matchesCategory =
+        selectedCategory === "all" || skill.category === selectedCategory;
+      const matchesSearch =
+        !searchQuery ||
+        skill.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        skill.description?.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
 
   const getCategoryLabel = (category: string) => {
-    const labels: Record<string, string> = {
-      frontend: "Frontend",
-      backend: "Backend",
-      database: "Database",
-      devops: "DevOps",
-      cloud: "Cloud",
-      languages: "Languages",
-      frameworks: "Frameworks",
-      tools: "Tools",
-      mobile: "Mobile",
-      design: "Design",
-      ai: "AI/ML",
-      all: "All Skills",
-    };
-
-    return (
-      labels[category] || category.charAt(0).toUpperCase() + category.slice(1)
-    );
+    if (category === "all") return t("skills.allSkills");
+    return t(`skills.categories.${category}`);
   };
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-white mb-2">Skills</h2>
+      <div className="mb-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">
+          03: {t("skills.title")}
+        </h2>
       </div>
+
       <div className="mb-8">
         <div className="flex flex-wrap gap-2">
-          <button
-            className={`px-3 py-2 rounded-lg text-sm ${
-              selectedCategory === "all"
-                ? "bg-blue-600 text-white"
-                : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
-            }`}
+          <Button
+            variant={selectedCategory === "all" ? "default" : "secondary"}
+            size="sm"
             onClick={() => setSelectedCategory("all")}
           >
-            All Skills
-          </button>
+            {t("skills.allSkills")}
+          </Button>
 
           {categories.map((category) => (
-            <button
+            <Button
               key={category}
-              className={`px-3 py-2 rounded-lg text-sm ${
-                selectedCategory === category
-                  ? "bg-blue-600 text-white"
-                  : "bg-zinc-800 text-gray-300 hover:bg-zinc-700"
-              }`}
+              variant={selectedCategory === category ? "default" : "secondary"}
+              size="sm"
               onClick={() => setSelectedCategory(category)}
             >
               {getCategoryLabel(category)} ({skillsByCategory[category].length})
-            </button>
+            </Button>
           ))}
         </div>
       </div>
 
       {filteredSkills.length > 0 ? (
-        <div className="grid grid-cols-2 md:grid-cols-3  gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {filteredSkills.map((skill) => (
             <SkillCard key={skill.id} skill={skill} />
           ))}
         </div>
       ) : (
         <div className="text-center py-12">
-          <p className="text-gray-400 text-lg">No skills match your criteria</p>
-          <button
-            className="mt-4 text-blue-400 hover:text-blue-300"
+          <p className="text-muted-foreground text-lg">
+            {t("skills.noResults")}
+          </p>
+          <Button
+            variant="link"
+            className="mt-4 text-primary"
             onClick={() => {
               setSelectedCategory("all");
               setSearchQuery("");
             }}
           >
-            Clear filters
-          </button>
+            {t("skills.clearFilters")}
+          </Button>
         </div>
       )}
     </div>

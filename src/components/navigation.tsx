@@ -1,39 +1,49 @@
 "use client";
 
 import { NavigationProps, NavItem } from "@/types";
+import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
+import { memo } from "react";
 
-export default function Navigation({
-  activeTab,
-  setActiveTab,
-}: NavigationProps) {
+const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
+  const { t } = useI18n();
+
   const navItems: NavItem[] = [
-    { id: "projects", label: "PET PROJECTS", number: "01" },
-    { id: "exp", label: "EXPERIENCE", number: "02" },
-    { id: "skills", label: "SKILLS", number: "03" },
-    { id: "blog", label: "BLOG", number: "04" },
+    { id: "projects", label: t("navigation.projects"), number: "01" },
+    { id: "exp", label: t("navigation.experience"), number: "02" },
+    { id: "skills", label: t("navigation.skills"), number: "03" },
+    { id: "blog", label: t("navigation.blog"), number: "04" },
   ];
 
   return (
-    <nav className="py-2">
+    <nav className="py-2" aria-label="Main Navigation">
       <ul className="space-y-4">
         {navItems.map((item) => (
           <li key={item.id} className="flex items-center">
-            <span className="text-sm mr-3 w-6 text-gray-400">
+            <span
+              className="text-sm mr-3 w-6 text-muted-foreground"
+              aria-hidden="true"
+            >
               {item.number}
             </span>
             <button
               onClick={() => setActiveTab(item.id)}
-              className={`relative flex items-center transition-colors duration-300 ${
+              className={cn(
+                "relative flex items-center transition-colors duration-300",
                 activeTab === item.id
-                  ? "text-white"
-                  : "text-gray-500 hover:text-gray-300"
-              }`}
+                  ? "text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground/80"
+              )}
+              aria-current={activeTab === item.id ? "page" : undefined}
             >
-              <div className="mr-3 transition-all duration-300">
+              <div
+                className="mr-3 transition-all duration-300"
+                aria-hidden="true"
+              >
                 {activeTab === item.id ? (
-                  <div className="w-16 h-px bg-white"></div>
+                  <div className="w-16 h-px bg-primary"></div>
                 ) : (
-                  <div className="w-6 h-px bg-gray-500"></div>
+                  <div className="w-6 h-px bg-muted-foreground"></div>
                 )}
               </div>
               <span className="uppercase text-sm tracking-wider">
@@ -45,4 +55,6 @@ export default function Navigation({
       </ul>
     </nav>
   );
-}
+};
+
+export default memo(Navigation);
