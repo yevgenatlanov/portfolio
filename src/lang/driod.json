@@ -32,11 +32,13 @@
   },
   "projects": {
     "title": "B00P Projects",
+    "subtitle": "",
     "viewProject": "View Schematic",
     "viewCode": "Scan Code"
   },
   "skills": {
     "title": "Function Modules",
+    "subtitle": "",
     "searchPlaceholder": "Scan modules...",
     "noResults": "No modules match parameters",
     "clearFilters": "Reset filters",

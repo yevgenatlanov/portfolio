@@ -27,10 +27,13 @@ export default function ExperienceList() {
     : filteredExperiences.slice(0, 3);
 
   return (
-    <div>
-      <div className="mb-6">
+    <div className="space-y-8">
+      <div className="flex justify-between items-center mb-6 relative">
+        <div className="absolute -left-4 md:-left-10 top-1/2 transform -translate-y-1/2 opacity-10 text-8xl md:text-8xl font-bold text-primary pointer-events-none select-none">
+          02
+        </div>
         <h2 className="text-2xl font-bold text-foreground mb-2">
-          02: {t("experience.title")}
+          {t("experience.title")}
         </h2>
         <p className="text-muted-foreground">{t("experience.subtitle")}</p>
       </div>
