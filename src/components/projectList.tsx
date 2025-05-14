@@ -3,8 +3,6 @@
 import { useI18n } from "@/lib/i18n";
 import ProjectCard from "./projectCard";
 import { projects } from "@/data/projects";
-import { LanguageSwitcher } from "./langSwitcher";
-import { ModeToggle } from "./modeToggle";
 
 export default function ProjectsList() {
   const { t } = useI18n();
@@ -14,10 +12,6 @@ export default function ProjectsList() {
         <h2 className="text-2xl font-bold text-foreground mb-2">
           01: {t("projects.title")}
         </h2>
-        <div className="flex items-center gap-2">
-          <LanguageSwitcher />
-          <ModeToggle />
-        </div>
       </div>
       <div className="space-y-6" aria-label="Project list">
         {projects.map((project, key) => (

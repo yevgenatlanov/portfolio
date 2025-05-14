@@ -14,8 +14,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { LanguageSwitcher } from "./langSwitcher";
+import { ModeToggle } from "./modeToggle";
+import { useI18n } from "@/lib/i18n";
 
 const SocialLinks: React.FC = () => {
+  const { t } = useI18n();
+
   const socialLinks: SocialLinkProps[] = [
     {
       href: "https://github.com/yevgenatlanov",
@@ -40,35 +45,61 @@ const SocialLinks: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-between w-full">
-      {/* <LanguageSwitcher />
-      <ModeToggle /> */}
-      <TooltipProvider>
-        {socialLinks.map((link, key) => (
-          <Tooltip key={key}>
-            <TooltipTrigger asChild>
-              <Button
-                variant="ghost"
-                size="lg"
-                asChild
-                className="text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
+    <div className="flex items-center justify-between w-full">
+      <div className="flex items-center gap-2">
+        <TooltipProvider>
+          {socialLinks.map((link, key) => (
+            <Tooltip key={key}>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  asChild
+                  className="text-muted-foreground hover:text-foreground transition-colors gap-2"
                 >
-                  {link.icon}
-                </a>
-              </Button>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                  >
+                    {link.icon}
+                  </a>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="top" align="center">
+                <p>{link.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
+        </TooltipProvider>
+      </div>
+
+      <div className="flex items-center gap-2">
+        <TooltipProvider>
+          <Tooltip key="language-switcher">
+            <TooltipTrigger asChild>
+              <div>
+                <LanguageSwitcher />
+              </div>
             </TooltipTrigger>
             <TooltipContent side="top" align="center">
-              <p>{link.label}</p>
+              <p>{t("common.changeLanguage")}</p>
             </TooltipContent>
           </Tooltip>
-        ))}
-      </TooltipProvider>
+
+          <Tooltip key="theme-toggle">
+            <TooltipTrigger asChild>
+              <div>
+                <ModeToggle />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent side="top" align="center">
+              <p>{t("common.toggleTheme")}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+      </div>
     </div>
   );
 };

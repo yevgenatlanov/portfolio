@@ -9,13 +9,15 @@ import React, {
 } from "react";
 import enMessages from "@/lang/en.json";
 import deMessages from "@/lang/de.json";
+import droidMessages from "@/lang/driod.json";
 
 const messages = {
   en: enMessages,
   de: deMessages,
+  droid: droidMessages,
 };
 
-type Locale = "en" | "de";
+type Locale = "en" | "de" | "droid";
 
 interface I18nContextType {
   locale: Locale;
