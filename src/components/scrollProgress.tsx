@@ -1,48 +1,48 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 export default function ScrollProgressIndicator() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  // some kind of trottling added to prevent progress bar from jumping
-
-  const handleScroll = useCallback(() => {
-    const totalHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrollPosition = window.scrollY;
-
-    if (totalHeight) {
-      setScrollProgress((scrollPosition / totalHeight) * 100);
-    }
-  }, []);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ticking = false;
-    const throttledScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
+    const update = () => {
+      if (!progressRef.current) return;
+
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      const scrollPosition = window.scrollY;
+      const scrollPercents = Math.min(
+        100,
+        Math.max(0, (scrollPosition / totalHeight) * 100)
+      );
+
+      // Use translate3d for hardware acceleration
+      progressRef.current.style.transform = `translate3d(-${
+        100 - scrollPercents
+      }%, 0px, 0px)`;
     };
 
-    handleScroll();
-    window.addEventListener("scroll", throttledScroll);
+    // Initial update
+    update();
 
+    // Add event listeners
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+
+    // Cleanup
     return () => {
-      window.removeEventListener("scroll", throttledScroll);
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
     };
-  }, [handleScroll]);
+  }, []);
 
   return (
     <div className="scroll-progress-container">
       <div
+        ref={progressRef}
         className="scroll-progress-bar"
-        style={{ width: `${scrollProgress}%` }}
         aria-hidden="true"
       />
     </div>
