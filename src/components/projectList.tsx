@@ -1,17 +1,29 @@
 "use client";
 
+import { useI18n } from "@/lib/i18n";
 import ProjectCard from "./projectCard";
 import { projects } from "@/data/projects";
+import { LanguageSwitcher } from "./langSwitcher";
+import { ModeToggle } from "./modeToggle";
 
 export default function ProjectsList() {
+  const { t } = useI18n();
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-white mb-2">Pet Projects</h2>
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-2xl font-bold text-foreground mb-2">
+          01: {t("projects.title")}
+        </h2>
+        <div className="flex items-center gap-2">
+          <LanguageSwitcher />
+          <ModeToggle />
+        </div>
       </div>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      <div className="space-y-6" aria-label="Project list">
+        {projects.map((project, key) => (
+          <ProjectCard key={key} project={project} />
+        ))}
+      </div>
     </div>
   );
 }
