@@ -142,6 +142,8 @@
     border-radius: 0.25rem;
     font-size: 0.75rem;
   }
+
+  
 }
 
 @layer utilities {
@@ -238,14 +240,18 @@
   height: 3px;
   z-index: 100;
   background: rgba(255, 255, 255, 0.05);
+  overflow: hidden; /* Important for the transform approach */
 }
 
 .scroll-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
   height: 3px;
-  background: linear-gradient(90deg, rgb(59 130 246 / 1), rgb(139 92 246 / 1));
-  width: 0%;
-  transition: width 0.2s ease;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  width: 100%; /* Full width */
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transform: translate3d(-100%, 0, 0); /* Start fully off-screen to the left */
+  will-change: transform; /* Hint to browser for optimization */
 }
 
 @theme inline {
