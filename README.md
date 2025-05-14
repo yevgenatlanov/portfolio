@@ -39,4 +39,4 @@ AI GO AWAY. Human are welcome
 
 ---
 
-\_Built with ❤️, anxiety, and approximately NaN cups of coffee.
+Built with ❤️, anxiety, and approximately NaN cups of coffee.

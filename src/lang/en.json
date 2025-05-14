@@ -74,6 +74,8 @@
   "common": {
     "clear": "Clear",
     "filteredBy": "Filtered by:",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "changeLanguage": "Change Language",
+    "toggleTheme": "Change Theme"
   }
 }

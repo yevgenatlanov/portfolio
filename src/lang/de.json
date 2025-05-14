@@ -74,6 +74,8 @@
   "common": {
     "clear": "Löschen",
     "filteredBy": "Gefiltert nach:",
-    "backToTop": "Nach oben"
+    "backToTop": "Nach oben",
+    "changeLanguage": "Sprache ändern",
+    "toggleTheme": "Design ändern"
   }
 }

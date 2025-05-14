@@ -17,6 +17,7 @@ export function LanguageSwitcher() {
     const languages: Record<string, string> = {
       en: "English",
       de: "Deutsch",
+      droid: "Droid",
     };
     return languages[localeCode] || localeCode;
   };
@@ -25,15 +26,15 @@ export function LanguageSwitcher() {
     const flags: Record<string, string> = {
       en: "🇬🇧",
       de: "🇩🇪",
+      droid: "🤖",
     };
     return flags[localeCode] || "";
   };
 
-  const handleLocaleChange = (newLocale: "en" | "de") => {
+  const handleLocaleChange = (newLocale: "en" | "de" | "droid") => {
     if (newLocale !== locale) {
       setLocale(newLocale);
-      // Force a page refresh to ensure all components use the new locale
-      // This is optional but ensures consistent language across the app
+
       // window.location.reload();
     }
   };
@@ -47,10 +48,10 @@ export function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {["en", "de"].map((loc) => (
+        {["en", "de", "droid"].map((loc) => (
           <DropdownMenuItem
             key={loc}
-            onClick={() => handleLocaleChange(loc as "en" | "de")}
+            onClick={() => handleLocaleChange(loc as "en" | "de" | "droid")}
             className={loc === locale ? "bg-secondary/50" : ""}
           >
             <span className="mr-2">{getLanguageFlag(loc)}</span>
