@@ -52,6 +52,24 @@ export const projects: Project[] = [
     ],
     role: "Backend Developer",
     teamSize: "5 developers",
+  },{
+    id: "fun1",
+    title: "AskGPT",
+    description:
+      "Inspired with Google for me. Users who are annoyed with random questions can generate a ChatGPT link for that query, and share a shortened URL with people.",
+    tags: ["Typescript", "NextJS"],
+    link: "#",
+
+    // Extended properties
+    liveUrl: "https://askgpt.atlanov.me",
+    githubUrl:
+      "https://github.com/yevgenatlanov/flashcards/blob/master/src/app/askgpt/page.tsx",
+    hasDetails: true,
+    timeframe: "2025",
+    techStack: ["TypeScript", "NextJS"],
+    keyFeatures: [],
+    role: "Full Stack Developer",
+    teamSize: "",
   },
   {
     id: "bizkit",
