@@ -1,84 +1,19 @@
 import { BlogPost } from "@/types";
 
 export const blogPosts: BlogPost[] = [
-  {
-    id: "react-performance",
-    title: "Optimizing React Performance",
-    slug: "optimizing-react-performance",
-    excerpt:
-      "Learn the strategies we used to drastically improve our React application's performance, from code splitting to memoization.",
-    date: "2024-05-10",
-    author: "Yevhenii Atlanov",
-    tags: ["React", "Performance", "JavaScript", "Web Development"],
-    coverImage: "/images/blog/react-performance.webp",
-    readTime: "8 min read",
-    isPublished: true,
-  },
-  {
-    id: "nextjs-13-app-router",
-    title: "Making the Most of Next.js 13 App Router: A Practical Guide",
-    slug: "nextjs-13-app-router-guide",
-    excerpt:
-      "Discover how to leverage the new App Router in Next.js 13 to build more maintainable and performant web applications.",
-    date: "2024-04-22",
-    author: "Yevhenii Atlanov",
-    tags: ["Next.js", "React", "Web Development", "Tutorial"],
-    coverImage: "/images/blog/nextjs-app-router.webp",
-    readTime: "10 min read",
-    isPublished: true,
-  },
-  {
-    id: "ml-in-javascript",
-    title: "Getting Started with Machine Learning in JavaScript",
-    slug: "machine-learning-javascript-guide",
-    excerpt:
-      "Yes, you can do machine learning in JavaScript! Here's how to get started with TensorFlow.js and build your first ML model.",
-    date: "2024-03-15",
-    author: "Yevhenii Atlanov",
-    tags: ["Machine Learning", "JavaScript", "TensorFlow.js", "AI"],
-    coverImage: "/images/blog/ml-javascript.webp",
-    readTime: "12 min read",
-    isPublished: true,
-  },
-  {
-    id: "nestjs-microservices",
-    title: "Building Scalable Microservices with NestJS and RabbitMQ",
-    slug: "nestjs-microservices-rabbitmq",
-    excerpt:
-      "A step-by-step guide to creating robust, scalable microservices using NestJS and RabbitMQ message queues.",
-    date: "2024-02-28",
-    author: "Yevhenii Atlanov",
-    tags: ["NestJS", "Microservices", "Node.js", "RabbitMQ"],
-    coverImage: "/images/blog/nestjs-microservices.webp",
-    readTime: "15 min read",
-    isPublished: true,
-  },
-  {
-    id: "web3-development-intro",
-    title: "Web3 Development for Traditional Web Developers: A Primer",
-    slug: "web3-development-for-web-developers",
-    excerpt:
-      "Transitioning from Web2 to Web3? Here's what you need to know about blockchain development for JavaScript developers.",
-    date: "2024-01-20",
-    author: "Yevhenii Atlanov",
-    tags: ["Web3", "Blockchain", "Ethereum", "JavaScript"],
-    coverImage: "/images/blog/web3-intro.webp",
-    readTime: "10 min read",
-    isPublished: true,
-  },
-  {
-    id: "typescript-generics",
-    title: "Advanced TypeScript: Mastering Generics and Utility Types",
-    slug: "typescript-generics-utility-types",
-    excerpt:
-      "Take your TypeScript skills to the next level with advanced generic patterns and built-in utility types.",
-    date: "2023-12-05",
-    author: "Yevhenii Atlanov",
-    tags: ["TypeScript", "JavaScript", "Web Development"],
-    coverImage: "/images/blog/typescript-generics.webp",
-    readTime: "12 min read",
-    isPublished: true,
-  },
+{
+  "id": "fun1-blog",
+  "title": "AskGPT: Share ChatGPT Prompts as Short Links",
+  "slug": "askgpt-share-chatgpt-prompts",
+  "excerpt": "Transform any startup IT question into a ready-to-share ChatGPT link, inspired by “Let Me Google That For You.”",
+  "date": "2025-06-02",
+  "author": "Yevhenii Atlanov",
+  "tags": ["Next.js", "TypeScript", "Web App", "Link Shortener"],
+  "coverImage": "/images/blog/askgpt-cover.webp",
+  "readTime": "3 min read",
+  "isPublished": true,
+  "content": "Every startup founder I know has a never-ending stream of IT questions—“How do I set up continuous deployment?” or “What’s the best way to secure my AWS S3 buckets?” These aren’t new problems, but typing out a full answer every time gets old fast. Inspired by the classic “Let Me Google That For You” approach, I built **AskGPT** to solve exactly this: transform any question into a ready-to-share ChatGPT link.\n\nWith AskGPT, simply paste in your IT question and click “Shorten and Get.” Behind the scenes, it crafts a ChatGPT URL (e.g. `chat.openai.com/?model=gpt-4&q=How+to+configure+CI/CD`) and sends it through the free is.gd API to produce a tiny, shareable link—no more manual URL encoding or copy-pasting long web addresses. Your peers just click the short URL and land directly in ChatGPT with the exact prompt preloaded.\n\nKey points:\n- **Startup-ready:** Perfect for those boilerplate tech questions that every newcomer asks.\n- **Inspired by “Let Me Google That For You”:** Instead of directing someone to Google, you’re handing them a ChatGPT session.\n- **Zero setup:** No accounts, no extra steps—just paste, click, and share.\n- **Open source:** Check it out on GitHub: [askgpt/page.tsx](https://github.com/yevgenatlanov/flashcards/blob/master/src/app/askgpt/page.tsx).\n\nTry it out at [https://askgpt.atlanov.me](https://askgpt.atlanov.me) and see how a tiny URL can save you time explaining the same IT answers over and over."
+},
 ];
 
 // Featured posts - latest 3
