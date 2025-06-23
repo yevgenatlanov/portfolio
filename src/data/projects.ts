@@ -52,7 +52,8 @@ export const projects: Project[] = [
     ],
     role: "Backend Developer",
     teamSize: "5 developers",
-  },{
+  },
+  {
     id: "fun1",
     title: "AskGPT",
     description:
@@ -67,6 +68,24 @@ export const projects: Project[] = [
     hasDetails: true,
     timeframe: "2025",
     techStack: ["TypeScript", "NextJS"],
+    keyFeatures: [],
+    role: "Full Stack Developer",
+    teamSize: "",
+  },
+  {
+    id: "demo1",
+    title: "Seatmap Designer",
+    description:
+      "Seatmap Designer is a web-based tool that lets users visually create and customize seating maps with tables and assign guests to specific seats. Designed for events, it supports intuitive drag-and-drop functionality and allows exporting the final layout to PDF for easy sharing and printing",
+    tags: ["Typescript", "NextJS"],
+    link: "https://seatsdesigner.atlanov.me",
+
+    // Extended properties
+    liveUrl: "https://seatsdesigner.atlanov.me",
+    githubUrl: "https://github.com/yevgenatlanov/seating-designer-demo",
+    hasDetails: true,
+    timeframe: "2025",
+    techStack: ["TypeScript", "NextJS", "Canvas", "Radix-ui/ Shadcn"],
     keyFeatures: [],
     role: "Full Stack Developer",
     teamSize: "",
