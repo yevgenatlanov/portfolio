@@ -32,12 +32,12 @@ export default function MobileHeader({
   };
 
   return (
-    <div className="bg-card md:hidden sticky top-0 z-30 bg-night px-4 py-4 border-dusk">
+    <div className="sticky top-0 z-30 border-b border-white/10 bg-background/88 px-4 py-4 backdrop-blur-xl md:hidden">
       <div className="flex justify-between items-center">
-        <h1 className="text-xl font-bold text-foreground">Yevhenii Atlanov</h1>
+        <h1 className="text-2xl font-semibold tracking-tight text-foreground">Yevhenii Atlanov</h1>
         <button
           onClick={toggleMobileMenu}
-          className="text-foreground p-2"
+          className="rounded-full border border-white/10 bg-card/70 p-2 text-foreground transition-colors hover:bg-accent"
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           <svg
@@ -64,7 +64,7 @@ export default function MobileHeader({
       {isMobileMenuOpen && (
         <div className="pt-4 animate-fadeIn">
           <Navigation activeTab={activeTab} setActiveTab={handleNavClick} />
-          <div className="mt-6 pt-4">
+          <div className="mt-6 border-t border-white/10 pt-4">
             <SocialLinks />
           </div>
         </div>

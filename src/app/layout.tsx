@@ -4,13 +4,17 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Yevhenii Atlanov | Full Stack Engineer",
+  title: "Yevhenii Atlanov | Визионер · Практик",
   description:
-    "Portfolio of Yevhenii Atlanov, Full Stack Engineer specializing in TypeScript, Web3, and ML",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+    "Портфолио Yevhenii Atlanov — Full Stack Engineer. Дуальность: визионер и практик, свет и тьма, идея и реализация.",
 };
 
 export default function RootLayout({
@@ -20,12 +24,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className}`}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "history.scrollRestoration && (history.scrollRestoration = 'manual'); window.scrollTo({ top: 0, left: 0, behavior: 'auto' });",
+          }}
+        />
+      </head>
+      <body className={`${inter.variable} font-inter antialiased`}>
         <I18nProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
+            defaultTheme="dark"
+            enableSystem={false}
             disableTransitionOnChange
           >
             {children}

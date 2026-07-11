@@ -1,6 +1,7 @@
 {
   "and": "*beep*",
   "navigation": {
+    "intro": "B00P-START",
     "projects": "B00P-PR0JECTS",
     "experience": "BEEP-TIMELINE",
     "skills": "FUNC-MODULES",

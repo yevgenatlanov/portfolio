@@ -9,15 +9,29 @@ import React, {
 } from "react";
 import enMessages from "@/lang/en.json";
 import deMessages from "@/lang/de.json";
-import droidMessages from "@/lang/driod.json";
 
 const messages = {
   en: enMessages,
   de: deMessages,
-  droid: droidMessages,
 };
 
-type Locale = "en" | "de" | "droid";
+type Locale = "en" | "de";
+const locales: Locale[] = ["en", "de"];
+
+function getInitialLocale(): Locale {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  const savedLocale = localStorage.getItem("locale");
+
+  if (savedLocale && locales.includes(savedLocale as Locale)) {
+    return savedLocale as Locale;
+  }
+
+  const browserLang = navigator.language.split("-")[0];
+  return browserLang === "de" ? "de" : "en";
+}
 
 interface I18nContextType {
   locale: Locale;
@@ -31,29 +45,12 @@ interface I18nContextType {
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("en");
-  const [isClient, setIsClient] = useState(false);
+  const [locale, setLocale] = useState<Locale>(getInitialLocale);
 
   useEffect(() => {
-    setIsClient(true);
-    // Try to get saved locale from localStorage
-    const savedLocale = localStorage.getItem("locale") as Locale | null;
-
-    if (savedLocale && ["en", "de"].includes(savedLocale)) {
-      setLocale(savedLocale);
-    } else {
-      // Check browser language
-      const browserLang = navigator.language.split("-")[0];
-      setLocale(browserLang === "de" ? "de" : "en");
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isClient) {
-      localStorage.setItem("locale", locale);
-      document.documentElement.lang = locale;
-    }
-  }, [locale, isClient]);
+    localStorage.setItem("locale", locale);
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   const t = (
     key: string,

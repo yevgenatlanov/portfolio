@@ -19,20 +19,20 @@ interface BlogPostCardProps {
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
   return (
-    <Card className="bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <Card className="overflow-hidden border-white/10 bg-card/80 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_28px_100px_rgba(0,0,0,0.34)]">
       <CardHeader className="pb-2">
         <CardTitle className="text-xl hover:text-primary transition-colors">
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
         </CardTitle>
 
-        <div className="flex items-center">
+        <div className="flex items-center text-sm text-muted-foreground">
           <FaClock className="mr-1" size={14} />
           <span>{post.readTime}</span>
         </div>
       </CardHeader>
 
       <CardContent>
-        <CardDescription className="text-foreground/80 line-clamp-2 text-sm sm:text-base">
+        <CardDescription className="line-clamp-2 text-sm text-foreground/74 sm:text-base sm:leading-7">
           {post.excerpt}
         </CardDescription>
       </CardContent>

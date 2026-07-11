@@ -21,7 +21,7 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
         {navItems.map((item) => (
           <li key={item.id} className="flex items-center">
             <span
-              className="text-sm mr-3 w-6 text-muted-foreground"
+              className="mr-3 w-6 text-[0.7rem] tracking-[0.12em] text-muted-foreground"
               aria-hidden="true"
             >
               {item.number}
@@ -29,7 +29,7 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
             <button
               onClick={() => setActiveTab(item.id)}
               className={cn(
-                "relative flex items-center transition-colors duration-300",
+                "group relative flex items-center transition-colors duration-300",
                 activeTab === item.id
                   ? "text-foreground font-medium"
                   : "text-muted-foreground hover:text-foreground/80"
@@ -43,10 +43,10 @@ const Navigation = ({ activeTab, setActiveTab }: NavigationProps) => {
                 {activeTab === item.id ? (
                   <div className="w-16 h-px bg-primary"></div>
                 ) : (
-                  <div className="w-6 h-px bg-muted-foreground"></div>
+                  <div className="h-px w-6 bg-muted-foreground transition-all duration-300 group-hover:w-10 group-hover:bg-foreground/70"></div>
                 )}
               </div>
-              <span className="uppercase text-sm tracking-wider">
+              <span className="text-sm font-medium tracking-[0.08em]">
                 {item.label}
               </span>
             </button>

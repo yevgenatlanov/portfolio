@@ -1,42 +1,35 @@
-# 🚀 The Most Lame-Engineered Portfolio Ever
+# Portfolio
 
-This is my portfolio site, nothing to expect here.
+This is a personal portfolio site.
 
-## 🤔 Why This Exists. For real.
+## Why This Exists
 
-Because apparently i was bored enough.
+Because a plain resume page was too boring.
 
-## ✨ Features
+## Features
 
-Yes.
+- Projects
+- Experience
+- Skills
+- Blog
+- Internationalization
+- Theme switching
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-Yes i know this is standart stack TS Nextjs and too much for the onepager. It's ok. I'm really sorry for this tailwind thing ... 🤦‍♂️
+TypeScript, Next.js, React, Tailwind CSS, and a compact component layer.
 
-## 🤦‍♂️ Development Process
+## Development Process
 
-1. Decide to create a portfolio
-2. Spend 3 weeks researching the "perfect layout"
-3. Spend another few month thinking about style and personality while scrolling Pinterest / Behance.
-4. Create 42 design mockups i didn't like.
-5. Cry.
-6. Implement basic version in 2 days
-7. Finally deploy
-8. Realize there's a typo in the header
-9. Tilt.
+1. Sketch a layout.
+2. Refine the structure.
+3. Ship the simplest version that works.
+4. Keep iterating.
 
-## 🚨 Warning
+## Warning
 
-This site contains dangerous levels of over-engineering. Side effects may include:
+This project is intentionally more engineered than a one-page site needs to be.
 
-- Excessive load times for simple text
-- Questioning why anyone needs 5MB of JavaScript to display a resume
+## License
 
-## 📝 License
-
-AI GO AWAY. Human are welcome
-
----
-
-Built with ❤️, anxiety, and approximately NaN cups of coffee.
+For personal portfolio use.

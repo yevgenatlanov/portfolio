@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "cashnews",
     title: "Cashnews",
-    description: "🔮 Watch, Analyse, Predict - ML stock market analysis.",
+    description: "Watch, analyse, predict. ML stock market analysis.",
     tags: ["Typescript", "NestJS", "NextJS", "Python"],
     link: "https://cashnews.ch",
 
@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     id: "dropster",
     title: "Dropster",
-    description: "📦 Fast and full-featured dropshipping shop",
+    description: "Fast and full-featured dropshipping shop.",
     tags: ["Typescript", "NestJS", "NextJS"],
     link: "https://dropster.ch",
 

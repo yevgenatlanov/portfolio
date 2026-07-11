@@ -2,9 +2,9 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/theme/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -38,9 +38,9 @@ const config: Config = {
         "1440": "1440px",
       },
       fontSize: {
-        xs: "10px",
-        sm: "12px",
-        base: "14px",
+        xs: "12px",
+        sm: "14px",
+        base: "16px",
         lg: "24px",
         xl: "36px",
         "2xl": "48px",

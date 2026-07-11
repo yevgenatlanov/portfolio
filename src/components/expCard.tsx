@@ -35,7 +35,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
       const startDate = new Date(experience.startDate);
       const endDate =
         experience.endDate === "Present"
-          ? new Date()
+          ? new Date(new Date().getFullYear(), 11, 31)
           : new Date(experience.endDate);
       const diffInMonths =
         (endDate.getFullYear() - startDate.getFullYear()) * 12 +
@@ -84,7 +84,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
   };
 
   return (
-    <Card className="bg-card overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+    <Card className="overflow-hidden border-white/10 bg-card/80 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/20 hover:shadow-[0_28px_100px_rgba(0,0,0,0.34)]">
       <CardHeader className="pb-0">
         <div className="flex-1">
           <div className="flex flex-wrap items-center mb-2">
@@ -93,7 +93,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
               onClick={() => setIsExpanded(!isExpanded)}
             >
               <button
-                className="text-gray-400 hover:text-white cursor-pointer transition-colors mr-2"
+                className="mr-2 cursor-pointer text-muted-foreground transition-colors hover:text-foreground"
                 aria-label={isExpanded ? "Collapse details" : "Expand details"}
               >
                 {isExpanded ? <FaChevronUp /> : <FaChevronDown />}
@@ -110,7 +110,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
 
       <CardContent>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <CardDescription className="text-lg font-medium text-primary">
+          <CardDescription className="text-lg font-medium text-foreground/86">
             {experience.company}
           </CardDescription>
 
@@ -140,12 +140,12 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           )}
 
           {isExpanded && (
-            <div className="mt-4 pt-4 border-t border-zinc-800 animate-fadeIn">
+            <div className="mt-4 animate-fadeIn border-t border-white/10 pt-4">
               <div className="mb-4">
-                <h4 className="text-sm font-semibold text-gray-300 mb-2">
+                <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-foreground/82">
                   {t("experience.details.keyAchievements")}
                 </h4>
-                <ul className="list-disc list-inside text-sm text-gray-400 space-y-2">
+                <ul className="list-disc list-inside space-y-2 text-sm leading-7 text-muted-foreground">
                   {experience.achievements.map((achievement, index) => (
                     <li key={index} className="leading-relaxed">
                       {achievement}
@@ -155,7 +155,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
               </div>
 
               <div>
-                <h4 className="text-sm font-semibold mb-2">
+                <h4 className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-foreground/82">
                   {t("experience.details.technologies")}
                 </h4>
                 <div className="flex flex-wrap gap-2">

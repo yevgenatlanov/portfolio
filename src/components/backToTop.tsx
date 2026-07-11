@@ -72,12 +72,12 @@ export default function ScrollProgressWithBackToTop() {
     <button
       ref={buttonRef}
       onClick={scrollToTop}
-      className="fixed bottom-6 right-6 size-12 flex items-center justify-center rounded-full shadow-lg z-30 transition-all duration-300 opacity-0 translate-y-10 pointer-events-none"
+      className="fixed bottom-6 right-6 z-30 flex size-12 items-center justify-center rounded-full border border-white/10 bg-card/85 shadow-[0_18px_50px_rgba(0,0,0,0.4)] backdrop-blur-md transition-all duration-300 opacity-0 translate-y-10 pointer-events-none"
       aria-label={t("common.backToTop")}
     >
       <svg className="size-12 -rotate-90" viewBox="0 0 40 40">
         <circle
-          className="opacity-25"
+          className="opacity-15"
           cx="20"
           cy="20"
           r="18"

@@ -1,6 +1,16 @@
 {
   "and": "und",
+  "dualism": {
+    "fixedTitle": "Dualität",
+    "sideLight": "visionär",
+    "sideDark": "praktiker",
+    "scrollHint": "scrollen",
+    "convergence": "grenze",
+    "name": "Yevhenii Atlanov",
+    "role": "Full Stack Engineer"
+  },
   "navigation": {
+    "intro": "ÜBERBLICK",
     "projects": "PROJEKTE",
     "experience": "ERFAHRUNG",
     "skills": "FÄHIGKEITEN",
@@ -10,6 +20,80 @@
     "title": "Full Stack Entwickler | Typescript, Web3, ML",
     "intro1": "Full-Stack Entwickler mit über 10 Jahren Erfahrung, spezialisiert auf Full-Cycle-Entwicklung in NodeJS, React.js, TypeScript.",
     "intro2": "In meiner Freizeit lerne ich Python und Golang und arbeite an meinem ML-Projekt Cashnews und E-Commerce-Projekt Dropster."
+  },
+  "dual": {
+    "I": {
+      "light": {
+        "num": "I · visionär",
+        "title": "Das große Ganze zu sehen heißt die Bedeutung zu verstehen",
+        "body": "Jedes Projekt beginnt mit einer Vision. Jede Codezeile trägt Absicht. Ich baue nicht nur Software — ich baue Ideen, die verändern, wie Menschen mit der Welt interagieren."
+      },
+      "dark": {
+        "num": "I · praktiker",
+        "title": "Das große Ganze zu bauen heißt die Last zu tragen",
+        "body": "Jedes Projekt fordert Präzision. Jede Codezeile birgt Risiko. Ich liefere nicht nur Ideen — ich liefere Systeme, die unter Druck funktionieren, skalieren, ohne Kompromiss."
+      }
+    },
+    "II": {
+      "light": {
+        "num": "II · visionär",
+        "title": "Projekte sind Geschichten, die erzählt werden wollen",
+        "body": "Jede Schöpfung hat eine Seele. Cashnews sagt die Zukunft voraus. Dropster verbindet Menschen. Seatmap bringt Ordnung ins Chaos. Hinter jedem Produkt — eine menschliche Geschichte."
+      },
+      "dark": {
+        "num": "II · praktiker",
+        "title": "Projekte sind Systeme, die brechen wollen",
+        "body": "Jede Schöpfung hat Grenzen. ML-Pipelines, die nicht scheitern dürfen. E-Commerce für Tausende Bestellungen. Echtzeitsysteme, wo Latenz tötet. Hinter jedem Produkt — eine Ingenieursentscheidung."
+      }
+    },
+    "III": {
+      "light": {
+        "num": "III · visionär",
+        "title": "Erfahrung ist der Weg des Wachstums",
+        "body": "Von Zürich nach Kuwait, von Startups bis Unternehmen — jedes Team hat mich Neues gelehrt. Jede Herausforderung hat mich weiter blicken lassen. Die Reise formt die Vision."
+      },
+      "dark": {
+        "num": "III · praktiker",
+        "title": "Erfahrung ist die Last der Verantwortung",
+        "body": "Teams von fünf leiten. Für Skalierung architektieren. Unter Deadline liefern. Jede Rolle forderte mehr als Ideen — sie forderte Ergebnisse. Die Reise schärft das Handwerk."
+      }
+    },
+    "IV": {
+      "light": {
+        "num": "IV · visionär",
+        "title": "Fähigkeiten sind Sprachen der Möglichkeit",
+        "body": "TypeScript spricht Klarheit. React spricht Interaktion. Python spricht Intelligenz. Jede Fähigkeit öffnet die Tür zu einer Welt, die es vorher nicht gab."
+      },
+      "dark": {
+        "num": "IV · praktiker",
+        "title": "Fähigkeiten sind Werkzeuge der Präzision",
+        "body": "NestJS für Architektur. PostgreSQL für Wahrheit. Docker für Isolation. Jedes Werkzeug gewählt, nicht weil es populär ist — sondern weil es für das Problem richtig ist."
+      }
+    },
+    "V": {
+      "light": {
+        "num": "V · visionär",
+        "title": "Selbst im komplexesten Code gibt es Schönheit",
+        "body": "Elegante Abstraktionen. Saubere Schnittstellen. Der Moment, wenn alles klickt. Code kann Poesie sein — wenn man ihn atmen lässt."
+      },
+      "dark": {
+        "num": "V · praktiker",
+        "title": "Selbst im schönsten Code gibt es Chaos",
+        "body": "Edge Cases. Race Conditions. Die Legacy, die niemand anfassen will. Code ist nie fertig — er erreicht nur den Punkt, wo er funktioniert. Vorerst."
+      }
+    },
+    "VI": {
+      "light": {
+        "num": "VI · visionär",
+        "title": "Vielleicht liegt die Wahrheit darin, am Rand zu stehen…",
+        "body": "Und keine Seite zu wählen."
+      },
+      "dark": {
+        "num": "VI · praktiker",
+        "title": "…und beide Welten gleichzeitig zu sehen",
+        "body": "Einfach sein. Zwischen Vision und Umsetzung."
+      }
+    }
   },
   "experience": {
     "title": "Berufserfahrung",

@@ -1,6 +1,16 @@
 {
   "and": "and",
+  "dualism": {
+    "fixedTitle": "Duality",
+    "sideLight": "visionary",
+    "sideDark": "practitioner",
+    "scrollHint": "scroll",
+    "convergence": "boundary",
+    "name": "Yevhenii Atlanov",
+    "role": "Full Stack Engineer"
+  },
   "navigation": {
+    "intro": "OVERVIEW",
     "projects": "PET PROJECTS",
     "experience": "EXPERIENCE",
     "skills": "SKILLS",
@@ -10,6 +20,80 @@
     "title": "Full Stack Engineer | Typescript, Web3, ML",
     "intro1": "Full-Stack Engineer with 10+ years of experience, specializing in full-cycle development in NodeJS, React.js, TypeScript.",
     "intro2": "In my spare time, I learn Python and Golang and work on my pet ML project Cashnews and e-commerce project Dropster."
+  },
+  "dual": {
+    "I": {
+      "light": {
+        "num": "I · visionary",
+        "title": "To see the big picture is to understand the meaning",
+        "body": "Every project starts with a vision. Every line of code carries intent. I build not just software — I build ideas that change how people interact with the world."
+      },
+      "dark": {
+        "num": "I · practitioner",
+        "title": "To build the big picture is to carry the weight",
+        "body": "Every project demands precision. Every line of code carries risk. I ship not just ideas — I ship systems that work under pressure, at scale, without compromise."
+      }
+    },
+    "II": {
+      "light": {
+        "num": "II · visionary",
+        "title": "Projects are stories waiting to be told",
+        "body": "Each creation has a soul. Cashnews predicts the future. Dropster connects people. Seatmap brings order to chaos. Behind every product — a human story."
+      },
+      "dark": {
+        "num": "II · practitioner",
+        "title": "Projects are systems waiting to break",
+        "body": "Each creation has constraints. ML pipelines that must not fail. E-commerce that handles thousands of orders. Real-time systems where latency kills. Behind every product — an engineering decision."
+      }
+    },
+    "III": {
+      "light": {
+        "num": "III · visionary",
+        "title": "Experience is the path of growth",
+        "body": "From Zurich to Kuwait, from startups to enterprises — every team taught me something new. Every challenge made me see further. The journey shapes the vision."
+      },
+      "dark": {
+        "num": "III · practitioner",
+        "title": "Experience is the weight of responsibility",
+        "body": "Leading teams of five. Architecting for scale. Shipping under deadline. Every role demanded more than ideas — it demanded results. The journey sharpens the craft."
+      }
+    },
+    "IV": {
+      "light": {
+        "num": "IV · visionary",
+        "title": "Skills are languages of possibility",
+        "body": "TypeScript speaks clarity. React speaks interaction. Python speaks intelligence. Each skill opens a door to a world that didn't exist before."
+      },
+      "dark": {
+        "num": "IV · practitioner",
+        "title": "Skills are tools of precision",
+        "body": "NestJS for architecture. PostgreSQL for truth. Docker for isolation. Each tool chosen not because it's popular — because it's right for the problem."
+      }
+    },
+    "V": {
+      "light": {
+        "num": "V · visionary",
+        "title": "Even in the most complex code, there is beauty",
+        "body": "Elegant abstractions. Clean interfaces. The moment when everything clicks. Code can be poetry — if you let it breathe."
+      },
+      "dark": {
+        "num": "V · practitioner",
+        "title": "Even in the most beautiful code, there is chaos",
+        "body": "Edge cases. Race conditions. The legacy nobody wants to touch. Code is never done — it just reaches a point where it works. For now."
+      }
+    },
+    "VI": {
+      "light": {
+        "num": "VI · visionary",
+        "title": "Perhaps the truth is to stand at the edge…",
+        "body": "And not choose a side."
+      },
+      "dark": {
+        "num": "VI · practitioner",
+        "title": "…and see both worlds simultaneously",
+        "body": "Just be. Between vision and execution."
+      }
+    }
   },
   "experience": {
     "title": "Work Experience",

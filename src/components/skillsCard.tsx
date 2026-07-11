@@ -10,11 +10,11 @@ interface SkillCardProps {
 
 export default function SkillCard({ skill }: SkillCardProps) {
   return (
-    <Card className="bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-      <CardContent className="">
+    <Card className="border-white/10 bg-card/78 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_70px_rgba(0,0,0,0.3)]">
+      <CardContent className="py-5">
         <div className="flex items-center">
           {skill.icon && (
-            <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-xl mr-3">
+            <div className="mr-3 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-secondary/70 text-xl">
               <img src={skill.icon} alt={skill.name} />
             </div>
           )}
